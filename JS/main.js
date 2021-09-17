@@ -8,9 +8,9 @@ const USERNAME_KEY = 'username'; //같은 String이 반복될 떄는 오타날 �
 //login Btn
 function onLoginSubmit (event) {
    event.preventDefault(); //브라우저의 기본 동작을 막아준다. 여기서는 submit 시 새로고침되는 걸 막아줌.
-    const username = loginInput.value;
+   loginForm.classList.add('hidden'); 
+   const username = loginInput.value;
     localStorage.setItem("USERNAME_KEY",username);
-    loginForm.classList.add('hidden');
     paintGreetings(username);
 
 }
