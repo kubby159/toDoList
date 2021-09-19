@@ -5,7 +5,12 @@ const toDoList = document.querySelector('#todo-list');
 
 
 
+const toDos = [];
 
+function saveToDos () {
+
+    localStorage.setItem('toDos', toDos)
+}
 
 
 function paintToDo(newTodo) {
@@ -20,7 +25,7 @@ function paintToDo(newTodo) {
     span.innerText = newTodo;    
     btn.innerText ="❌";
     btn.addEventListener('click',deleteList)
-   toDoList.appendChild(li);
+    toDoList.appendChild(li);
 }
 
 
@@ -38,9 +43,12 @@ function deleteList(event) {
 function handleToDoSubmit (event) {
 
     event.preventDefault();
+
     const newTodo = toDoInput.value;
     toDoInput.value = "";
+    toDos.push(newTodo);
     paintToDo(newTodo);
+    saveToDos();
 
 }
 
