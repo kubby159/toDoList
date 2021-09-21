@@ -35,8 +35,10 @@ function paintToDo(newTodo) {
 function deleteList(event) {
 
 
-    const deleteEvent = event.target.parentNode
+    const deleteEvent = event.target.parentElement
     deleteEvent.remove();
+    toDos = toDos.filter(toDo => toDo.id !== parseInt(deleteEvent.id));
+    saveToDos();
 }
 
 
@@ -72,3 +74,5 @@ if(savedToDos!==null) {
 
 
 }
+
+
